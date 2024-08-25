@@ -4,7 +4,7 @@
         <TargetFramework>net8.0-macos</TargetFramework>
 
         <Description>File operations for MacOs</Description>
-        <PackageId>Egorozh.FileOperations.Mac</PackageId>
+        <PackageId>XFiler.FileOperations.Mac</PackageId>
 
     </PropertyGroup>
 

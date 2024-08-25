@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         
         <Description>File operations abstractions for cross platform implementations</Description>
-        <PackageId>Egorozh.FileOperations.Abstractions</PackageId>
+        <PackageId>XFiler.FileOperations.Abstractions</PackageId>
     </PropertyGroup>
 
 </Project>

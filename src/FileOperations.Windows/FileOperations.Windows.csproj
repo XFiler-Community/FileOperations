@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
 
         <Description>File operations for Windows</Description>
-        <PackageId>Egorozh.FileOperations.Windows</PackageId>
+        <PackageId>XFiler.FileOperations.Windows</PackageId>
         <RootNamespace>FileOperations.Windows</RootNamespace>
 
     </PropertyGroup>

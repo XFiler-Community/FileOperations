@@ -4,13 +4,13 @@
 
         <IsAotCompatible>true</IsAotCompatible>
         
-        <Version>8.0.0-preview4</Version>
+        <Version>8.0.0</Version>
 
-        <Company>Egorozh</Company>
+        <Company>XFiler</Company>
         <Product>CrossPlatform File Operations</Product>
         <Authors>Egorozh</Authors>
-        <PackageProjectUrl>https://github.com/egorozh/FileOperations</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/egorozh/FileOperations</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/XFiler-Community/FileOperations</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/XFiler-Community/FileOperations</RepositoryUrl>
         <PackageTags>Windows, MacOs, Files, FileOperations, File operations</PackageTags>
 
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
