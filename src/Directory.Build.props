@@ -1,0 +1,33 @@
+<Project>
+    <PropertyGroup>
+        <Nullable>Enable</Nullable>
+
+        <IsAotCompatible>true</IsAotCompatible>
+        
+        <Version>8.0.0-preview4</Version>
+
+        <Company>Egorozh</Company>
+        <Product>CrossPlatform File Operations</Product>
+        <Authors>Egorozh</Authors>
+        <PackageProjectUrl>https://github.com/egorozh/FileOperations</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/egorozh/FileOperations</RepositoryUrl>
+        <PackageTags>Windows, MacOs, Files, FileOperations, File operations</PackageTags>
+
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath />
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath />
+        </None>
+    </ItemGroup>
+</Project>

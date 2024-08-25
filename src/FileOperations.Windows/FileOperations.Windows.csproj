@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+
+        <Description>File operations for Windows</Description>
+        <PackageId>Egorozh.FileOperations.Windows</PackageId>
+        <RootNamespace>FileOperations.Windows</RootNamespace>
+
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <Compile Update="Resources\SR.Designer.cs">
+            <DependentUpon>SR.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\SR.resx">
+            <SubType>Designer</SubType>
+            <LastGenOutput>SR.Designer.cs</LastGenOutput>
+            <Generator>PublicResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FileOperations.Abstractions\FileOperations.Abstractions.csproj" />
+
+        <PackageReference Include="System.Management" Version="8.0.0" />
+    </ItemGroup>
+
+</Project>

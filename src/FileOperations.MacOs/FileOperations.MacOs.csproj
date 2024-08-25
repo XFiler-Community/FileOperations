@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-macos</TargetFramework>
+
+        <Description>File operations for MacOs</Description>
+        <PackageId>Egorozh.FileOperations.Mac</PackageId>
+
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\FileOperations.Abstractions\FileOperations.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
