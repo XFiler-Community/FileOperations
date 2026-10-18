@@ -4,7 +4,11 @@
 
         <IsAotCompatible>true</IsAotCompatible>
         
-        <Version>8.0.0</Version>
+        <!-- CI overrides it from the release tag (v10.0.1 -> 10.0.1). -->
+        <Version>10.0.0</Version>
+
+        <!-- Lets the Windows projects build on macOS/Linux (they still only run on Windows). -->
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
         <Company>XFiler</Company>
         <Product>CrossPlatform File Operations</Product>

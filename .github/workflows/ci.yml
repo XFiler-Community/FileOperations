@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Each package builds on its own OS: the macos workload is not available on Windows runners.
+# A v* tag also packs and pushes to NuGet, with the version taken from the tag (v10.0.1 -> 10.0.1).
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            projects: >-
+              src/FileOperations.Abstractions/FileOperations.Abstractions.csproj
+              src/FileOperations.Windows/FileOperations.Windows.csproj
+              src/Windows.ImageOperations/Windows.ImageOperations.csproj
+          - os: macos-latest
+            projects: >-
+              src/FileOperations.MacOs/FileOperations.MacOs.csproj
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install macos workload
+        if: runner.os == 'macOS'
+        run: dotnet workload install macos
+
+      - name: Version
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "VERSION_ARG=-p:Version=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build
+        shell: bash
+        run: |
+          for project in ${{ matrix.projects }}; do
+            dotnet build "$project" --configuration Release $VERSION_ARG
+          done
+
+      - name: Pack
+        shell: bash
+        run: |
+          for project in ${{ matrix.projects }}; do
+            dotnet pack "$project" --no-build --configuration Release --output nupkgs $VERSION_ARG
+          done
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkgs-${{ runner.os }}
+          path: nupkgs/*.nupkg
+
+      - name: Push to NuGet.org
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: dotnet nuget push "nupkgs/*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate

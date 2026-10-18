@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using FileOperations.Abstractions;
 using FileOperations.Abstractions.Enums;
@@ -50,6 +50,7 @@ public class MacOsFileOperations : IFileOperations
 
         var url = new NSUrl(path, isDir: isDir);
 
-        fileManager.TrashItem(url, out var res, out var error);
+        if (!fileManager.TrashItem(url, out _, out var error))
+            throw new IOException($"Cannot move '{path}' to Trash: {error?.LocalizedDescription ?? "unknown error"}");
     }
 }

@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
 
         <Description>File operations for Windows</Description>
         <PackageId>XFiler.FileOperations.Windows</PackageId>
@@ -29,7 +29,7 @@
     <ItemGroup>
         <ProjectReference Include="..\FileOperations.Abstractions\FileOperations.Abstractions.csproj" />
 
-        <PackageReference Include="System.Management" Version="8.0.0" />
+        <PackageReference Include="System.Management" Version="10.0.13" />
     </ItemGroup>
 
 </Project>
