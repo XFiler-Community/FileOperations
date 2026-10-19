@@ -5,7 +5,7 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
 		<Description>Windows image operations</Description>
-		<PackageId>Egorozh.Windows.ImageOperations</PackageId>
+		<PackageId>XFiler.ImageOperations.Windows</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
