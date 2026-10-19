@@ -105,8 +105,9 @@ Windows). Building the Mac project needs macOS with Xcode and the `macos` worklo
 
 CI (`.github/workflows/ci.yml`) builds and packs the Windows packages on a Windows runner and the Mac
 package on a macOS runner, on every push and pull request to `main`. Pushing a `v*` tag publishes all
-packages to NuGet.org with the version taken from the tag (`v10.0.1` → `10.0.1`); this needs the
-`NUGET_API_KEY` repository secret.
+packages to NuGet.org with the version taken from the tag (`v10.0.1` → `10.0.1`) through NuGet
+Trusted Publishing — no API key: a nuget.org trusted publishing policy for this repository and
+`ci.yml`, and the `NUGET_USER` repository secret (nuget.org profile name of the policy's creator).
 
 ```bash
 git tag v10.0.1
