@@ -19,6 +19,7 @@
 
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,6 +31,13 @@
 
     <ItemGroup>
         <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath />
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\icon.png">
             <Pack>True</Pack>
             <PackagePath />
         </None>
