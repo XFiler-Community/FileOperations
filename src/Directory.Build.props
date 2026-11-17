@@ -4,8 +4,8 @@
 
         <IsAotCompatible>true</IsAotCompatible>
         
-        <!-- CI overrides it from the release tag (v10.0.1 -> 10.0.1). -->
-        <Version>10.0.0</Version>
+        <!-- CI overrides it from the release tag (v11.0.0 -> 11.0.0). -->
+        <Version>11.0.0</Version>
 
         <!-- Lets the Windows projects build on macOS/Linux (they still only run on Windows). -->
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
