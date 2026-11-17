@@ -3,16 +3,16 @@
 [![CI](https://github.com/XFiler-Community/FileOperations/actions/workflows/ci.yml/badge.svg)](https://github.com/XFiler-Community/FileOperations/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/XFiler-Community/FileOperations/blob/main/LICENSE)
 
-Platform-native file operations for .NET 10 desktop apps: move to Recycle Bin / Trash, well-known user
+Platform-native file operations for .NET 11 desktop apps: move to Recycle Bin / Trash, well-known user
 folders, logical drives and drive mount notifications — behind one set of interfaces for Windows and macOS.
 Used by the [X-Filer](https://x-filer.com) file manager.
 
 | Package | Target | Version | Downloads |
 |---|---|---|---|
-| [XFiler.FileOperations.Abstractions](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) | `net10.0` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Abstractions.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Abstractions.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) |
-| [XFiler.FileOperations.Windows](https://www.nuget.org/packages/XFiler.FileOperations.Windows) | `net10.0-windows` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Windows.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Windows) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Windows.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Windows) |
-| [XFiler.FileOperations.Mac](https://www.nuget.org/packages/XFiler.FileOperations.Mac) | `net10.0-macos` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Mac.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Mac) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Mac.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Mac) |
-| [Egorozh.Windows.ImageOperations](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) | `net10.0-windows` | [![NuGet](https://img.shields.io/nuget/v/Egorozh.Windows.ImageOperations.svg)](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) | [![Downloads](https://img.shields.io/nuget/dt/Egorozh.Windows.ImageOperations.svg)](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) |
+| [XFiler.FileOperations.Abstractions](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) | `net11.0` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Abstractions.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Abstractions.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Abstractions) |
+| [XFiler.FileOperations.Windows](https://www.nuget.org/packages/XFiler.FileOperations.Windows) | `net11.0-windows` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Windows.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Windows) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Windows.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Windows) |
+| [XFiler.FileOperations.Mac](https://www.nuget.org/packages/XFiler.FileOperations.Mac) | `net11.0-macos` | [![NuGet](https://img.shields.io/nuget/v/XFiler.FileOperations.Mac.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Mac) | [![Downloads](https://img.shields.io/nuget/dt/XFiler.FileOperations.Mac.svg)](https://www.nuget.org/packages/XFiler.FileOperations.Mac) |
+| [Egorozh.Windows.ImageOperations](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) | `net11.0-windows` | [![NuGet](https://img.shields.io/nuget/v/Egorozh.Windows.ImageOperations.svg)](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) | [![Downloads](https://img.shields.io/nuget/dt/Egorozh.Windows.ImageOperations.svg)](https://www.nuget.org/packages/Egorozh.Windows.ImageOperations) |
 
 ## What is inside
 
@@ -38,17 +38,17 @@ Reference the abstractions from shared code and the platform package from the ap
   <PackageReference Include="XFiler.FileOperations.Abstractions" Version="10.0.0" />
 </ItemGroup>
 
-<ItemGroup Condition="'$(TargetFramework)' == 'net10.0-windows'">
+<ItemGroup Condition="'$(TargetFramework)' == 'net11.0-windows'">
   <PackageReference Include="XFiler.FileOperations.Windows" Version="10.0.0" />
 </ItemGroup>
 
-<ItemGroup Condition="'$(TargetFramework)' == 'net10.0-macos'">
+<ItemGroup Condition="'$(TargetFramework)' == 'net11.0-macos'">
   <PackageReference Include="XFiler.FileOperations.Mac" Version="10.0.0" />
 </ItemGroup>
 ```
 
-The Windows package targets `net10.0-windows`, so a plain `net10.0` project cannot reference it — the
-Windows head of the app has to target `net10.0-windows` too. The Mac package needs the `macos` workload
+The Windows package targets `net11.0-windows`, so a plain `net11.0` project cannot reference it — the
+Windows head of the app has to target `net11.0-windows` too. The Mac package needs the `macos` workload
 (`dotnet workload install macos`).
 
 ## Usage
@@ -117,7 +117,7 @@ git push origin v10.0.1
 ## Changelog
 
 **10.0.0**
-- Targets .NET 10: `net10.0` (Abstractions), `net10.0-windows` (Windows, ImageOperations), `net10.0-macos` (Mac).
+- Targets .NET 11: `net11.0` (Abstractions), `net11.0-windows` (Windows, ImageOperations), `net11.0-macos` (Mac).
 - macOS: moving to Trash throws an `IOException` when it fails instead of silently doing nothing.
 - macOS: `MacOsDriveDetector` reports mounted and unmounted volumes (it was an empty stub).
 
