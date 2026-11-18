@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 # Each package builds on its own OS: the macos workload is not available on Windows runners.
-# A v* tag also packs and pushes to NuGet, with the version taken from the tag (v10.0.1 -> 10.0.1).
+# A v* tag also packs and pushes to NuGet, with the version taken from the tag (v11.0.0 -> 11.0.0).
 jobs:
   build:
     strategy:

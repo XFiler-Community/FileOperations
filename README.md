@@ -35,15 +35,15 @@ Reference the abstractions from shared code and the platform package from the ap
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="XFiler.FileOperations.Abstractions" Version="10.0.0" />
+  <PackageReference Include="XFiler.FileOperations.Abstractions" Version="11.0.0" />
 </ItemGroup>
 
 <ItemGroup Condition="'$(TargetFramework)' == 'net11.0-windows'">
-  <PackageReference Include="XFiler.FileOperations.Windows" Version="10.0.0" />
+  <PackageReference Include="XFiler.FileOperations.Windows" Version="11.0.0" />
 </ItemGroup>
 
 <ItemGroup Condition="'$(TargetFramework)' == 'net11.0-macos'">
-  <PackageReference Include="XFiler.FileOperations.Mac" Version="10.0.0" />
+  <PackageReference Include="XFiler.FileOperations.Mac" Version="11.0.0" />
 </ItemGroup>
 ```
 
@@ -105,19 +105,22 @@ Windows). Building the Mac project needs macOS with Xcode and the `macos` worklo
 
 CI (`.github/workflows/ci.yml`) builds and packs the Windows packages on a Windows runner and the Mac
 package on a macOS runner, on every push and pull request to `main`. Pushing a `v*` tag publishes all
-packages to NuGet.org with the version taken from the tag (`v10.0.1` → `10.0.1`) through NuGet
+packages to NuGet.org with the version taken from the tag (`v11.0.0` → `11.0.0`) through NuGet
 Trusted Publishing — no API key: a nuget.org trusted publishing policy for this repository and
 `ci.yml`, and the `NUGET_USER` repository secret (nuget.org profile name of the policy's creator).
 
 ```bash
-git tag v10.0.1
-git push origin v10.0.1
+git tag v11.0.0
+git push origin v11.0.0
 ```
 
 ## Changelog
 
-**10.0.0**
+**11.0.0**
 - Targets .NET 11: `net11.0` (Abstractions), `net11.0-windows` (Windows, ImageOperations), `net11.0-macos` (Mac).
+
+**10.0.0**
+- Targets .NET 10: `net10.0` (Abstractions), `net10.0-windows` (Windows, ImageOperations), `net10.0-macos` (Mac).
 - macOS: moving to Trash throws an `IOException` when it fails instead of silently doing nothing.
 - macOS: `MacOsDriveDetector` reports mounted and unmounted volumes (it was an empty stub).
 
